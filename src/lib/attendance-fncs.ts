@@ -54,7 +54,6 @@ const checkTheDurationOfAttendees = (
 ) => {
   let totalParticipantsDuration = new Map<string, number>();
 
-  console.log("Participants", Participants);
   const participantsWithoutMe = removeMeFromParticipants(
     Participants,
     filtermeOut
@@ -102,6 +101,7 @@ const compareTheAteendees = async (
     Participants,
     filtermeOut
   );
+
   if (!timeInterval) {
     const matchingAttendees = fileData.map((attendee) => {
       const matchingAttendeeAttended = participantsWithoutMe.find(

@@ -1,5 +1,5 @@
 import {
-  setElapsedTime,
+  ResetElapsedTime,
   setRecordingState,
 } from "@/store/features/app-state/app-slice";
 import { AnyAction, Dispatch } from "@reduxjs/toolkit";
@@ -57,7 +57,7 @@ const startRecording = (dispatch: Dispatch<AnyAction>): Promise<string> => {
 
 const stopRecording = (dispatch: Dispatch<AnyAction>): Promise<string> => {
   dispatch(setRecordingState());
-  dispatch(setElapsedTime(0));
+  dispatch(ResetElapsedTime(0));
   mediaRecorder.stop();
   return new Promise((resolve, reject) => {
     try {
