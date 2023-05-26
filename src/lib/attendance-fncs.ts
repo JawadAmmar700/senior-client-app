@@ -37,6 +37,14 @@ const timeTounix = (timeString: string) => {
   return Math.floor(dateObj.getTime() / 1000);
 };
 
+function dateToString() {
+  return new Date().toLocaleTimeString([], {
+    hour: "numeric",
+    minute: "numeric",
+    timeZone: "Europe/Istanbul",
+  });
+}
+
 const removeMeFromParticipants = (
   Participants: Participant[],
   filtermeOut: string
@@ -66,7 +74,7 @@ const checkTheDurationOfAttendees = (
             timeTounix(participant.leftAt) - timeTounix(participant.joinedAt)
           )
         : Math.floor(
-            Math.floor(Date.now() / 1000) - timeTounix(participant.joinedAt)
+            timeTounix(dateToString()) - timeTounix(participant.joinedAt)
           );
     return {
       ...participant,
