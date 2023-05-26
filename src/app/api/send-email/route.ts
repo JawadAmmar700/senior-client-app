@@ -6,7 +6,7 @@ export async function POST(request: Request) {
     from: `${process.env.MY_EMAIL}`,
     to: email,
     subject: "Join my Meeting",
-    text: `Hi, I would like to invite you to my meeting. Please use this id to join. \n\n ${meetingId}`,
+    html: `Hi, I would like to invite you to my meeting. Please use this id to join. \n\n ${meetingId}`,
   };
   try {
     await transporter.sendMail(mailOptions);

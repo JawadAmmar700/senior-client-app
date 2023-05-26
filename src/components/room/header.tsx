@@ -48,6 +48,7 @@ const Header = ({ isDrawer }: { isDrawer: boolean }) => {
       timeIntervalRef.current?.value!,
       session?.user?.email!
     );
+
     toast.promise(
       new Promise(async (resolve, reject) => {
         try {

@@ -1,30 +1,16 @@
 "use client";
 import { useState } from "react";
-import { MdKeyboardArrowLeft } from "react-icons/md";
 import Header from "./header";
 import { RootState } from "@/store/configuration";
 import { useSelector } from "react-redux";
-import { usePathname, useRouter } from "next/navigation";
 
 const RoomName = () => {
   const { roomName } = useSelector((state: RootState) => state.appState);
   const [open, setOpen] = useState(false);
-  const router = useRouter();
-  const pathname = usePathname();
 
   return (
     <div className="flex p-2 space-x-5 items-center justify-between shadow-sm rounded-lg">
       <div className="flex items-center space-x-3">
-        {/* <div
-          onClick={() => {
-            if (pathname !== "/chat") {
-              router.back();
-            }
-          }}
-          className="flex items-center justify-center p-2 group  rounded-lg bg-[#E1F3F2] cursor-pointer "
-        >
-          <MdKeyboardArrowLeft className="w-6 h-6 text-[#D7D8DD] group-hover:text-green-500" />
-        </div> */}
         <h1 className="lg:text-xl text-xl font-bold">{roomName}</h1>
       </div>
       <button
